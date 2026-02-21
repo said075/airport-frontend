@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { fetchTuzlaFlights } from "../api/flights";
 import type { TuzlaFlight } from "../types/flight";
 
+let tuzlaFetchPromise: Promise<TuzlaFlight[]> | null = null;
+
 export function TuzlaFlights() {
   const [flights, setFlights] = useState<TuzlaFlight[]>([]);
   const [loading, setLoading] = useState(true);
@@ -11,7 +13,10 @@ export function TuzlaFlights() {
     let cancelled = false;
     setLoading(true);
     setError(null);
-    fetchTuzlaFlights()
+    if (!tuzlaFetchPromise) {
+      tuzlaFetchPromise = fetchTuzlaFlights();
+    }
+    tuzlaFetchPromise
       .then((data) => {
         if (!cancelled) setFlights(data);
       })
@@ -24,6 +29,7 @@ export function TuzlaFlights() {
       })
       .finally(() => {
         if (!cancelled) setLoading(false);
+        tuzlaFetchPromise = null;
       });
     return () => {
       cancelled = true;
