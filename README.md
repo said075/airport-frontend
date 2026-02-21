@@ -1,6 +1,37 @@
-# Getting Started with Create React App
+# Airport Frontend – Tuzla
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+React app that displays **Tuzla International Airport** flight data from the airport-backend API.
+
+## Running with the backend
+
+1. **Start the backend** (in `../airport-backend`) on port 3001:
+   ```bash
+   cd ../airport-backend && PORT=3001 npm start
+   ```
+   Backend runs on [http://localhost:3001](http://localhost:3001). The frontend proxies `/api` to it.
+
+2. **Start the frontend**:
+   ```bash
+   npm start
+   ```
+   Open [http://localhost:3000](http://localhost:3000). The app will load arrivals and departures for Tuzla from the backend.
+
+## Docker
+
+**Run the frontend in Docker** (backend must be running on the host on port 3001):
+
+```bash
+docker compose up --build
+```
+
+Then open [http://localhost:3000](http://localhost:3000). The container proxies `/api` to `http://host.docker.internal:3001` so the app can talk to the backend on your machine.
+
+**Build image only:**
+
+```bash
+docker build -t airport-frontend .
+docker run -p 3000:3000 -e BACKEND_HOST=host.docker.internal:3001 airport-frontend
+```
 
 ## Available Scripts
 

@@ -1,0 +1,11 @@
+services:
+  frontend:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      # Backend on host machine (Mac/Windows use host.docker.internal; Linux uses host-gateway)
+      - BACKEND_HOST=host.docker.internal:3001
+    extra_hosts:
+      # So backend on host is reachable on Linux
+      - "host.docker.internal:host-gateway"
