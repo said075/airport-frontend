@@ -71,15 +71,17 @@ export function TuzlaFlights() {
                 <table className="flights-table">
                   <thead>
                     <tr>
-                      <th>Time</th>
-                      <th>Airline</th>
-                      <th>City</th>
-                      <th>IATA</th>
+                      <th scope="col">Date / Day</th>
+                      <th scope="col">Time</th>
+                      <th scope="col">Airline</th>
+                      <th scope="col">City</th>
+                      <th scope="col">IATA</th>
                     </tr>
                   </thead>
                   <tbody>
                     {byType[type].map((f, i) => (
-                      <tr key={`${f.time}-${f.airline}-${f.iata}-${i}`}>
+                      <tr key={`${f.date}-${f.time}-${f.airline}-${f.iata}-${i}`}>
+                        <td className="flight-date">{f.date || "—"}</td>
                         <td>{f.time}</td>
                         <td>{f.airline}</td>
                         <td>{f.city}</td>
