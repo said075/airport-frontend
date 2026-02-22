@@ -1,4 +1,4 @@
-import type { TuzlaFlight, BanjaLukaFlight } from "../types/flight";
+import type { TuzlaFlight, BanjaLukaFlight, MostarFlight } from "../types/flight";
 
 const API_BASE =
   process.env.REACT_APP_API_URL || "";
@@ -19,4 +19,9 @@ export async function fetchTuzlaFlights(): Promise<TuzlaFlight[]> {
 export async function fetchBanjaLukaFlights(): Promise<BanjaLukaFlight[]> {
   const res = await fetch(`${API_BASE}/api/flights/banjaluka`);
   return handleResponse<BanjaLukaFlight[]>(res);
+}
+
+export async function fetchMostarFlights(): Promise<MostarFlight[]> {
+  const res = await fetch(`${API_BASE}/api/flights/mostar`);
+  return handleResponse<MostarFlight[]>(res);
 }

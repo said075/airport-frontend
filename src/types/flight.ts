@@ -19,3 +19,15 @@ export interface BanjaLukaFlight {
   time: string;
   airline: string;
 }
+
+/** Matches backend MostarFlight from airport-backend */
+export interface MostarFlight {
+  airport: string;
+  type: string;
+  flightNumber: string;
+  destination: string;
+  time: string;
+  airline: string;
+  iata: string;
+  date: string;
+}

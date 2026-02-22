@@ -4,6 +4,7 @@ import { Layout } from "./components/Layout";
 import { Home } from "./pages/Home";
 import { TuzlaFlights } from "./pages/TuzlaFlights";
 import { BanjaLukaFlights } from "./pages/BanjaLukaFlights";
+import { MostarFlights } from "./pages/MostarFlights";
 import { Buses } from "./pages/Buses";
 import { Contact } from "./pages/Contact";
 import "./App.css";
@@ -16,6 +17,7 @@ function App() {
           <Route index element={<Home />} />
           <Route path="airports/tuzla" element={<TuzlaFlights />} />
           <Route path="airports/banjaluka" element={<BanjaLukaFlights />} />
+          <Route path="airports/mostar" element={<MostarFlights />} />
           <Route path="buses" element={<Buses />} />
           <Route path="contact" element={<Contact />} />
           <Route path="*" element={<Navigate to="/" replace />} />
