@@ -42,6 +42,17 @@ export function Layout() {
                     Tuzla
                   </Link>
                 </li>
+                <li role="none">
+                  <Link
+                    to="/airports/banjaluka"
+                    className={
+                      location.pathname === "/airports/banjaluka" ? "active" : ""
+                    }
+                    role="menuitem"
+                  >
+                    Banja Luka
+                  </Link>
+                </li>
               </ul>
             )}
           </li>

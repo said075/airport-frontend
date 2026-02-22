@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { Layout } from "./components/Layout";
 import { Home } from "./pages/Home";
 import { TuzlaFlights } from "./pages/TuzlaFlights";
+import { BanjaLukaFlights } from "./pages/BanjaLukaFlights";
 import { Buses } from "./pages/Buses";
 import { Contact } from "./pages/Contact";
 import "./App.css";
@@ -14,6 +15,7 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="airports/tuzla" element={<TuzlaFlights />} />
+          <Route path="airports/banjaluka" element={<BanjaLukaFlights />} />
           <Route path="buses" element={<Buses />} />
           <Route path="contact" element={<Contact />} />
           <Route path="*" element={<Navigate to="/" replace />} />
